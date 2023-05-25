@@ -94,3 +94,7 @@ To access the file system, we're gonna need another built in module from Node ca
 When i run this program, we don't see the contents of the file, we actually see the stringification of a binary buffer. That's because, by default, the file system commands, in fact, most I/O commands, they're assuming these low-level binary buffer. They're not assuming that you wanna represent things as strings.
 
 What other thing you could have done if you really needed it as a string and not as a buffer, you could've told the readfile to use a particular encoding. `var contents = fs.readFileSync(filepath, "utf8")`
+
+## 7. Asynchronous readFile
+
+The asynchronous form of readFile expects a callback. Node for the most part uses a standard for its callback signatures that the first parameter is always the error parameter typically named **err**. And we always need to check to make sure that there wasn't an error.
