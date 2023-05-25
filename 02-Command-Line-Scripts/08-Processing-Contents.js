@@ -21,11 +21,8 @@ if (args.help) {
   error('Incorrect usage.', true)
 }
 
-// Run this in terminal: ./07-Asynchronous-readFile.js --file=../files/hello.txt
-// Hello World
-
-// Run this in terminal: ./07-Asynchronous-readFile.js --file=../files/hello.txt2
-// no such file or directory, open '/home/elfgod/Documents/fm-kyle-nodejs/files/hello.txt2'
+// Run this in terminal: ./08-Processing-Contents.js --file=../files/hello.txt
+// HELLO WORLD
 
 // Uppercase the characters
 function processFile(filepath) {
@@ -34,7 +31,7 @@ function processFile(filepath) {
     } else {
       // Contents here is a buffer, and we can't really uppercase a binary buffer
       // we're gonna have to turn it into a string, so that we can do that uppercasing on it.
-      contents = contents.toString().toUpperCase();
+      contents = contents.toString().toUpperCase()
       process.stdout.write(contents)
     }
   })
