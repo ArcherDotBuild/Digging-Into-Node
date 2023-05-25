@@ -124,3 +124,28 @@ function processFile(filepath) {
   })
 }
 ```
+
+## 9. Processing Input from stdin
+
+We walked earlier about the standard in stream. We said we want to be able to pull from a standard in but we don't want to have to do our own like invention of that logic, so we're going to go ahead and pull in another package
+
+`npm install get-stdin`
+
+So we want to be able to support not only telling you a file by name, but also we want our program to be able to receive the file inputs on the standard in stream. So we need some way of indicating that to our program on a command line parameter. We need some flag to tell it hey get your stuff from standard in instead of trying to look for it in the file.
+
+Now you'll notice that we're going to wanna call process file, but we're gonna need to not pass it, necessarily a string path anymore. We're gonna want to go ahead and pass it, the contents of the file. Cuz we either might have gotten it from a file or we might have gotten it from standard in.
+
+`util` Another package built-in Node
+
+## 10. Environment Variables
+
+We also can get inputs into our program in one other way which is through the use of environment variables. This is again one of those ones that may change a little bit depending on if you're using a Linux or Mac system versus a Windows system. But in Linux or Mac, if you want to set an environment variable, it's kind of like setting a global variable. It's a variable that would be automatically available to a program. But if you wanna do it on a per command basis, you basically just prefix something.
+
+`HELLO=WORLD ./ex1.js` That would set an environment variable for my shell environment called HELLO with the value WORLD, but only for this command. And then it goes away. So it's like creating an environment. Now these are typically used to configure a development versus a production environment or paths or things like that. But there's a lot of different ways that you might wanna take a program and being able to configure it through the useage of environment variables. So what we're gonna do if i run that, nothing, it doesn't see that but we're gonna make our program be able to see and use that information.
+
+```javascript
+if(process.env.HELLO) {
+  console.log(process.env.HELLO);
+}
+```
+So we can use this for, in this particular case, we're gonna use it for configuring a base file path. 
