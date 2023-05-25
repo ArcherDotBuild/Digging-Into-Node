@@ -98,3 +98,29 @@ What other thing you could have done if you really needed it as a string and not
 ## 7. Asynchronous readFile
 
 The asynchronous form of readFile expects a callback. Node for the most part uses a standard for its callback signatures that the first parameter is always the error parameter typically named **err**. And we always need to check to make sure that there wasn't an error.
+
+```javascript
+function processFile(filepath) {
+  fs.readFile(filepath, function onContents(err, contents) {
+    if (err) {
+      error(err.toString())
+    } else {
+      process.stdout.write(contents)
+    }
+  })
+}
+```
+
+## 8. Processing File Contents
+
+```javascript
+function processFile(filepath) {
+  fs.readFile(filepath, function onContents(err, contents) {
+    if (err) {
+    } else {
+      contents = contents.toString().toUpperCase();
+      process.stdout.write(contents)
+    }
+  })
+}
+```
